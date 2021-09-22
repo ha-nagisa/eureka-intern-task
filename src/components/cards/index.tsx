@@ -1,23 +1,28 @@
 import React, { useState } from "react";
+import { CARDANIMATIONSTATE, PEOPLE } from "../App";
 import "./cards.scss";
-
-interface PEOPLE {
-  id: string;
-  name: string;
-  age: number;
-  img: string;
-}
 
 interface PROPS {
   people: PEOPLE[];
-  setPeople: React.Dispatch<React.SetStateAction<PEOPLE[]>>;
+  cardAnimation: CARDANIMATIONSTATE;
 }
 
-const Cards: React.FC<PROPS> = ({ people, setPeople }) => {
+const Cards: React.FC<PROPS> = ({ people, cardAnimation }) => {
   return (
     <ul className="cards">
-      {people.slice(0, 5).map((person) => (
-        <li key={person.id} className="card">
+      {people.slice(0, 5).map((person, i) => (
+        <li
+          key={person.id}
+          className={`card ${
+            i !== 0
+              ? ""
+              : cardAnimation === "normal"
+              ? ""
+              : cardAnimation === "yes"
+              ? "animateYes"
+              : "animateNo"
+          }`}
+        >
           <img alt={person.name} src={person.img} />
           <span>
             <strong>{person.name}</strong>
