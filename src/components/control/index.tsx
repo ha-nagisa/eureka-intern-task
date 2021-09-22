@@ -7,12 +7,22 @@ const Control: React.FC = () => {
     <div className="control">
       <div className="button no">
         <div className="trigger">
-          <FontAwesomeIcon icon="times" size="2x" className="icon" />
+          <FontAwesomeIcon
+            icon="times"
+            size="2x"
+            className="icon"
+            onClick={() => console.log("テスト")}
+          />
         </div>
       </div>
       <div className="button yes">
         <div className="trigger">
-          <FontAwesomeIcon icon="heart" size="2x" className="icon" />
+          <FontAwesomeIcon
+            icon="heart"
+            size="2x"
+            className="icon"
+            onClick={() => console.log("テスト")}
+          />
         </div>
       </div>
     </div>
